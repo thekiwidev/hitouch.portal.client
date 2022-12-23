@@ -9,7 +9,7 @@ export function BasicProvider({ children }) {
   const [message, setMessage] = useState("");
 
   // BASE_URL for SERVER
-  const BASE_URL = `http://localhost:5000/api/users/info/`;
+  const BASE_URL = `https://ill-red-adder-wig.cyclic.app/api/users/info/`;
 
   // Get Logged in user Info
   const getInfo = (token) => {

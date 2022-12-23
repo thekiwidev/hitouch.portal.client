@@ -9,7 +9,7 @@ export function AuthProvider({ children }) {
   const [status, setStatus] = useState("idle"); // idle, pending, fulfilled, rejected
   const [message, setMessage] = useState("");
 
-  const BASE_URL = `http://localhost:5000/api/`;
+  const BASE_URL = `https://ill-red-adder-wig.cyclic.app/api/`;
 
   // Sign Up User
 
