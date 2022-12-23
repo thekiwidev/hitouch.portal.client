@@ -63,6 +63,7 @@ function Signin() {
               name="email"
               value={email}
               onChange={onChange}
+              placeholder="Email"
             />
             <input
               type="password"
@@ -70,6 +71,7 @@ function Signin() {
               name="password"
               value={password}
               onChange={onChange}
+              placeholder="Password"
             />
             <button type="submit">Sign In</button>
           </form>
