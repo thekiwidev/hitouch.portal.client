@@ -58,6 +58,7 @@ function BasicInfo() {
     if (info) {
       setFormData(info);
     }
+    console.log(process.env);
   }, [info]);
 
   // FUNCTIONS
@@ -199,4 +200,5 @@ function BasicInfo() {
     </section>
   );
 }
+
 export default BasicInfo;
