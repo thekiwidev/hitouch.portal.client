@@ -9,8 +9,11 @@ export function VisaProvider({ children }) {
   const [message, setMessage] = useState("");
 
   // BASE_URL for SERVER
-  const BASE_URL = `https://ill-red-adder-wig.cyclic.app/api/users/info/visa/`;
-
+  // const BASE_URL = `https://ill-red-adder-wig.cyclic.app/api/users/info/visa/`;
+  const BASE_URL =
+    process.env.NODE_ENV === "production"
+      ? `https://ill-red-adder-wig.cyclic.app/api/users/info/visa/`
+      : `http://localhost:5000/api/users/info/visa/`;
   // create a new info Info
   const createInfo = (token, newInfo) => {
     setStatus("pending");
@@ -41,7 +44,7 @@ export function VisaProvider({ children }) {
   const getInfo = (token) => {
     setStatus("pending");
 
-    fetch(`${BASE_URL}`, {
+    fetch(BASE_URL, {
       method: "GET",
       headers: {
         Accept: "application/json, text/plain, */*",

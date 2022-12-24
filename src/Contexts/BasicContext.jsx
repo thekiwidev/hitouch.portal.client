@@ -9,13 +9,17 @@ export function BasicProvider({ children }) {
   const [message, setMessage] = useState("");
 
   // BASE_URL for SERVER
-  const BASE_URL = `https://ill-red-adder-wig.cyclic.app/api/users/info/`;
+  // const BASE_URL = `https://ill-red-adder-wig.cyclic.app/api/users/info/`;
+  const BASE_URL =
+    process.env.NODE_ENV === "production"
+      ? `https://ill-red-adder-wig.cyclic.app/api/users/info/`
+      : `http://localhost:5000/api/users/info/basic/`;
 
   // Get Logged in user Info
   const getInfo = (token) => {
     setStatus("pending");
 
-    fetch(`${BASE_URL}basic/`, {
+    fetch(BASE_URL, {
       method: "GET",
       headers: {
         Accept: "application/json, text/plain, */*",
@@ -42,7 +46,7 @@ export function BasicProvider({ children }) {
   const updateInfo = (id, token, updatedInfo) => {
     setStatus("pending");
 
-    fetch(`${BASE_URL}basic/${id}`, {
+    fetch(`${BASE_URL + id}`, {
       method: "PUT",
       headers: {
         Accept: "application/json, text/plain, */*",

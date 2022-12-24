@@ -9,14 +9,17 @@ export function AuthProvider({ children }) {
   const [status, setStatus] = useState("idle"); // idle, pending, fulfilled, rejected
   const [message, setMessage] = useState("");
 
-  const BASE_URL = `https://ill-red-adder-wig.cyclic.app/api/`;
-
+  // const BASE_URL = `https://ill-red-adder-wig.cyclic.app/api/`;
+  const BASE_URL =
+    process.env.NODE_ENV === "production"
+      ? `https://ill-red-adder-wig.cyclic.app/api/users/`
+      : `http://localhost:5000/api/users/`;
   // Sign Up User
 
   const signUp = (userData) => {
     setStatus("pending");
 
-    fetch(`${BASE_URL}users`, {
+    fetch(BASE_URL, {
       method: "POST",
       headers: {
         Accept: "application/json, text/plain, */*",
@@ -50,7 +53,7 @@ export function AuthProvider({ children }) {
   const signIn = (userData) => {
     setStatus("pending");
 
-    fetch(`${BASE_URL}users/signin/`, {
+    fetch(`${BASE_URL}signin/`, {
       method: "POST",
       headers: {
         Accept: "application/json, text/plain, */*",

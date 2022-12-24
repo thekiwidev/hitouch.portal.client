@@ -58,7 +58,6 @@ function BasicInfo() {
     if (info) {
       setFormData(info);
     }
-    console.log(process.env);
   }, [info]);
 
   // FUNCTIONS
