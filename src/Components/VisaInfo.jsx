@@ -70,69 +70,89 @@ function VisaInfo() {
   return (
     <section className="dashboard-section-user-info-form">
       <form onSubmit={!info ? onCreate : onUpdate} className="form-field">
-        <input
-          type="text"
-          name="firstName"
-          id="firstName"
-          placeholder="First Name"
-          value={firstName || ""}
-          onChange={onChange}
-        />
+        <div className="input-box">
+          <input
+            type="text"
+            name="firstName"
+            id="firstName"
+            placeholder=" "
+            value={firstName || ""}
+            onChange={onChange}
+          />
+          <label htmlFor="firstName">First Name</label>
+        </div>
 
-        <input
-          type="text"
-          name="lastName"
-          id="lastName"
-          placeholder="Last Name"
-          value={lastName || ""}
-          onChange={onChange}
-        />
+        <div className="input-box">
+          <input
+            type="text"
+            name="lastName"
+            id="lastName"
+            placeholder=" "
+            value={lastName || ""}
+            onChange={onChange}
+          />
+          <label htmlFor="lastName">Last Name</label>
+        </div>
 
-        <input
-          type="text"
-          name="dob"
-          id="dob"
-          placeholder="Date of Birth"
-          value={dob || ""}
-          onChange={onChange}
-        />
+        <div className="input-box">
+          <input
+            type="text"
+            name="dob"
+            id="dob"
+            placeholder=" "
+            value={dob || ""}
+            onChange={onChange}
+          />
+          <label htmlFor="dob">Date of Birth</label>
+        </div>
 
-        <input
-          type="text"
-          name="firstLang"
-          id="firstLang"
-          placeholder="First Language"
-          value={firstLang || ""}
-          onChange={onChange}
-        />
+        <div className="input-box">
+          <input
+            type="text"
+            name="firstLang"
+            id="firstLang"
+            placeholder=" "
+            value={firstLang || ""}
+            onChange={onChange}
+          />
+          <label htmlFor="firstLang">Primary Language</label>
+        </div>
 
-        <input
-          type="text"
-          name="nationality"
-          id="nationality"
-          placeholder="Nationality"
-          value={nationality || ""}
-          onChange={onChange}
-        />
+        <div className="input-box">
+          <input
+            type="text"
+            name="nationality"
+            id="nationality"
+            placeholder=" "
+            value={nationality || ""}
+            onChange={onChange}
+          />
+          <label htmlFor="nationality">Nationality</label>
+        </div>
 
-        <input
-          type="text"
-          name="passportNum"
-          id="passportNum"
-          placeholder="Passport Number"
-          value={passportNum || ""}
-          onChange={onChange}
-        />
+        <div className="input-box">
+          <input
+            type="text"
+            name="passportNum"
+            id="passportNum"
+            placeholder=" "
+            value={passportNum || ""}
+            onChange={onChange}
+          />
+          <label htmlFor="passportNum">Passport Number</label>
+        </div>
 
-        <input
-          type="text"
-          name="passportExpDate"
-          id="passportExpDate"
-          placeholder="Passport Exiration Date"
-          value={passportExpDate || ""}
-          onChange={onChange}
-        />
-
+        <div className="input-box">
+          <input
+            type="text"
+            name="passportExpDate"
+            id="passportExpDate"
+            placeholder=" "
+            value={passportExpDate || ""}
+            onChange={onChange}
+          />
+          <label htmlFor="passportExpDate">Passport Expiration Date</label>
+        </div>
         <button type="submit">Save & Continue</button>
       </form>
     </section>

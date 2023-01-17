@@ -26,7 +26,7 @@ function Info() {
             <TbTicket /> Visa Information
           </Link>
           <Link to="/info/others">
-            <TbAddressBook /> Other Informations
+            <TbAddressBook /> Documents Uploads
           </Link>
         </div>
 
