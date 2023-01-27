@@ -12,7 +12,7 @@ export function VisaProvider({ children }) {
   // const BASE_URL = `https://ill-red-adder-wig.cyclic.app/api/users/info/visa/`;
   const BASE_URL =
     process.env.NODE_ENV === "production"
-      ? `https://ill-red-adder-wig.cyclic.app/api/users/info/visa/`
+      ? `https://portal-server-c5kj.onrender.com/api/users/info/visa/`
       : `http://localhost:5000/api/users/info/visa/`;
   // create a new info Info
   const createInfo = (token, newInfo) => {

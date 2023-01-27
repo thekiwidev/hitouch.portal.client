@@ -12,7 +12,7 @@ export function BasicProvider({ children }) {
   // const BASE_URL = `https://ill-red-adder-wig.cyclic.app/api/users/info/`;
   const BASE_URL =
     process.env.NODE_ENV === "production"
-      ? `https://ill-red-adder-wig.cyclic.app/api/users/info/`
+      ? `https://portal-server-c5kj.onrender.com/api/users/info/`
       : `http://localhost:5000/api/users/info/basic/`;
 
   // Get Logged in user Info

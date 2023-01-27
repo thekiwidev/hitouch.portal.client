@@ -9,10 +9,10 @@ export function AuthProvider({ children }) {
   const [status, setStatus] = useState("idle"); // idle, pending, fulfilled, rejected
   const [message, setMessage] = useState("");
 
-  // const BASE_URL = `https://ill-red-adder-wig.cyclic.app/api/`;
+  // const BASE_URL = `https://ill-red-adder-wig.cyclic.app/`;
   const BASE_URL =
     process.env.NODE_ENV === "production"
-      ? `https://ill-red-adder-wig.cyclic.app/api/users/`
+      ? `https://portal-server-c5kj.onrender.com/api/users/`
       : `http://localhost:5000/api/users/`;
   // Sign Up User
 
