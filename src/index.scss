@@ -50,10 +50,33 @@ body {
       align-items: center;
 
       .logo {
-        flex: 1;
+        cursor: pointer;
+        padding: 0.5rem;
 
-        img {
-          width: 150px;
+        a {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          text-decoration: none;
+        }
+
+        svg {
+          width: 42px;
+          -o-object-fit: contain;
+          object-fit: contain;
+        }
+        span {
+          font-weight: 900;
+          color: #fff;
+        }
+        svg {
+          fill: #373435;
+        }
+        path {
+          fill: #373435;
+        }
+        span {
+          color: #373435;
         }
       }
 

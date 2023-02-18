@@ -10,80 +10,75 @@ export function AuthProvider({ children }) {
   const [message, setMessage] = useState("");
 
   // const BASE_URL = `https://ill-red-adder-wig.cyclic.app/`;
+  // const BASE_URL = `http://localhost:5000/api/users/`;
   const BASE_URL =
     process.env.NODE_ENV === "production"
       ? `https://portal-server-c5kj.onrender.com/api/users/`
       : `http://localhost:5000/api/users/`;
   // Sign Up User
 
-  const signUp = (userData) => {
-    setStatus("pending");
-
-    fetch(BASE_URL, {
-      method: "POST",
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userData),
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else if (!res.ok) {
-          setStatus("rejected");
-          setMessage("SOME ERROR");
-          res.clone();
-          console.log(res.json());
-          return res.json();
-        }
-      })
-      .then((data) => {
-        setStatus("fulfilled");
-        setUser(data);
-        localStorage.setItem("user", JSON.stringify(data));
-      })
-      .catch((err) => {
-        setStatus("rejected");
-        setMessage(err.message);
+  // THE LOG IN FUNCTION
+  const signUp = async (data) => {
+    try {
+      // make a request to the server with the user {data}
+      const response = await fetch(`${BASE_URL}`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       });
+      // get the response and store in a variable
+      const result = await response.json();
+
+      // the request is successful, the status is set to successful
+      setStatus("fulfilled");
+
+      // the user data is set and stored in local storage
+      setUser(data);
+      localStorage.setItem("user", JSON.stringify(result));
+
+      // to reload the page so the data should populate the page
+      window.location.reload();
+    } catch (e) {
+      // if the request failed
+      setStatus("rejected");
+      setMessage(`Error making POST request: ${e}`);
+      console.log("Error making POST request: ", e);
+    }
   };
 
-  // Sign In User
-  const signIn = (userData) => {
-    setStatus("pending");
-
-    fetch(`${BASE_URL}signin/`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userData),
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else if (!res.ok) {
-          setStatus("rejected");
-          setMessage("SOME ERROR");
-          res.clone();
-          let logRes = res.clone();
-          console.log(logRes);
-          return res.json();
-        }
-      })
-      .then((data) => {
-        setStatus("fulfilled");
-        setUser(data);
-        localStorage.setItem("user", JSON.stringify(data));
-      })
-      .catch((err) => {
-        console.log(err);
-        let msg = err.message;
-        setStatus("rejected");
-        setMessage(msg);
+  // THE LOG IN FUNCTION
+  const logIn = async (data) => {
+    try {
+      // make a request to the server with the user {data}
+      const response = await fetch(`${BASE_URL}signin/`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       });
+      // get the response and store in a variable
+      const result = await response.json();
+
+      // the request is successful, the status is set to successful
+      setStatus("fulfilled");
+
+      // the user data is set and stored in local storage
+      setUser(data);
+      localStorage.setItem("user", JSON.stringify(result));
+
+      // to reload the page so the data should populate the page
+      window.location.reload();
+    } catch (e) {
+      // if the request failed
+      setStatus("rejected");
+      setMessage(`Error making POST request: ${e}`);
+      console.log("Error making POST request: ", e);
+    }
   };
 
   // Log Out a User
@@ -95,7 +90,7 @@ export function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider
-      value={{ user, status, message, signUp, signIn, logout }}
+      value={{ user, status, message, signUp, logIn, logout }}
     >
       {children}
     </AuthContext.Provider>
@@ -103,22 +98,3 @@ export function AuthProvider({ children }) {
 }
 
 export default AuthContext;
-
-// fetch(YOUR_URL)
-// .then(res => {
-//   try {
-//     if (res.ok) {
-//       return res.json()
-//     } else {
-//       throw new Error(res)
-//     }
-//   }
-//   catch (err) {
-//     console.log(err.message)
-//     return WHATEVER_YOU_WANT_TO_RETURN
-//   }
-// })
-// .then (resJson => {
-//   return resJson.data
-// })
-// .catch(err => console.log(err))

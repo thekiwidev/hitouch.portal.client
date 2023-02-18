@@ -9,7 +9,7 @@ function Signin() {
   // initialize navigate
   const navigate = useNavigate();
   // Import contexts
-  const { user, status, message, signIn } = useContext(AuthContext);
+  const { user, status, message,  logIn } = useContext(AuthContext);
 
   // Use States for form data
   const [formData, setFormData] = useState({
@@ -28,7 +28,8 @@ function Signin() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    signIn(formData);
+    // signIn(formData);
+    logIn(formData)
   };
 
   useEffect(() => {
