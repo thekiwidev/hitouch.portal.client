@@ -44,10 +44,9 @@ function Signup() {
     }
 
     if (user) {
-      navigate("/dashboard");
+      navigate("/");
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [status, message]);
+  }, [status, message, user, navigate]);
 
   if (status === "pending") return <Loading />;
 

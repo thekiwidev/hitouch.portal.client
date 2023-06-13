@@ -1,9 +1,16 @@
-import { useContext } from "react";
-import { TbClipboardList, TbMoodSmile, TbLayout2 } from "react-icons/tb";
-import { Link } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { TbClipboardList, TbMoodSmile } from "react-icons/tb";
+import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../Contexts/AuthContext";
 function Sidebar() {
+  const navigate = useNavigate();
   const { user } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/signin");
+    }
+  }, [navigate, user]);
 
   return (
     <div className="sidebar">
@@ -17,10 +24,6 @@ function Sidebar() {
           </div>
         </Link>
         <div className="tab-links">
-          <Link to="/dashboard" className="tab-item">
-            <TbLayout2 className="tab-icon" />
-            <p>Dashboard</p>
-          </Link>
           <Link to="/info/basic" className="tab-item">
             <TbClipboardList className="tab-icon" />
             <p>User Info</p>

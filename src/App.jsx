@@ -13,7 +13,6 @@ import Signup from "./Pages/Signup";
 import Signin from "./Pages/Signin";
 import Home from "./Pages/Home";
 import Info from "./Pages/Info";
-import Dashboard from "./Pages/Dashboard";
 import BasicInfo from "./Components/BasicInfo";
 import VisaInfo from "./Components/VisaInfo";
 import EducationInfo from "./Components/EducationInfo";
@@ -33,7 +32,6 @@ function App() {
                 <Routes>
                   <Route path="/" element={<Home />}>
                     <Route path="/user" element={<h1>User Info</h1>} />
-                    <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/info" element={<Info />}>
                       <Route path="basic" element={<BasicInfo />} />
                       <Route path="education" element={<EducationInfo />} />

@@ -14,11 +14,11 @@ function VisaInfo() {
     firstName: "",
     lastName: "",
     otherNames: "",
-    dob: "",
+    dob: null,
     firstLang: "",
     nationality: "",
     passportNum: "",
-    passportExpDate: "",
+    passportExpDate: null,
   });
 
   const {

@@ -18,11 +18,11 @@ function BasicInfo() {
     otherNames: "",
     email: "",
     phoneNumber: "",
-    dob: "",
+    dob: null,
     firstLang: "",
     nationality: "",
     passportNum: "",
-    passportExpDate: "",
+    passportExpDate: null,
     gender: "",
     maritalStatus: "",
     address: "",
@@ -146,7 +146,7 @@ function BasicInfo() {
             type="date"
             name="dob"
             id="dob"
-            placeholder=" "
+            placeholder=""
             value={dob || ""}
             onChange={onChange}
           />
@@ -192,8 +192,8 @@ function BasicInfo() {
             type="date"
             name="passportExpDate"
             id="passportExpDate"
-            placeholder=" "
-            value={passportExpDate || " "}
+            placeholder=""
+            value={passportExpDate || ""}
             onChange={onChange}
           />
           <label htmlFor="passportExpDate">Passport Exiration Date</label>
