@@ -5,7 +5,7 @@ import AuthContext from "../Contexts/AuthContext";
 import BasicContext from "../Contexts/BasicContext";
 import VisaContext from "../Contexts/VisaContext";
 
-import seamLessLogo from "../assets/images/seamless_visa_logo.jpg";
+import seamLessLogo from "../assets/images/seamless_visa_logo.png";
 
 function Header() {
   const navigate = useNavigate();
