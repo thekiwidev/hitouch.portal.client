@@ -55,15 +55,13 @@ function BasicInfo() {
   // USE EFFECTS
 
   useEffect(() => {
+    getInfo(user.token);
     if (status === "rejected") {
       console.log(`Some Error took place : => ${message}`);
       toast.error(message);
     }
-
-    if (!info) {
-      getInfo(user.token);
-    }
-  }, [getInfo, info, message, status, user]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (info) {
