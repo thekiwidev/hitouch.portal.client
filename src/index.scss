@@ -17,6 +17,8 @@ body {
 
   font-size: 1.6rem;
   overflow: hidden; //
+
+  background: #f4fbff;
 }
 
 ::-webkit-scrollbar {
@@ -51,13 +53,16 @@ body {
 
       .logo {
         cursor: pointer;
-        padding: 0.5rem;
 
         a {
           display: flex;
           align-items: center;
           gap: 0.5rem;
           text-decoration: none;
+        }
+
+        img {
+          width: 100px;
         }
 
         svg {

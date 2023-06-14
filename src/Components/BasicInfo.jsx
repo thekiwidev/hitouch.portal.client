@@ -287,7 +287,7 @@ function BasicInfo() {
             type="text"
             name="email"
             id="email"
-            placeholder="placeholder@email.com"
+            placeholder=" "
             value={email || ""}
             onChange={onChange}
           />
