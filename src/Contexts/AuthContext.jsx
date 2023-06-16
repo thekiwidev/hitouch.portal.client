@@ -59,6 +59,8 @@ export function AuthProvider({ children }) {
   // !THE LOG IN FUNCTION
   // *================================================================
   const logIn = async (data) => {
+    setStatus("pending");
+
     try {
       // make a request to the server with the user {data}
       const response = await fetch(`${BASE_URL}signin/`, {
@@ -69,6 +71,8 @@ export function AuthProvider({ children }) {
         },
         body: JSON.stringify(data),
       });
+
+      console.log(data);
 
       if (response.ok) {
         const responseData = await response.json();
